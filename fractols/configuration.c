@@ -12,31 +12,32 @@ void my_mlx_pixel_put(t_image image, int x, int y, int color)
 }
 
 //default configutation of config.>fractal
-void reset_configuration(t_config config*, int fractal_type)
+void reset_configuration(t_config *config, char *fractal_type)
 {
     config->fractal.type = fractal_type;
-    config->fractal.zoom = ???;
+    config->fractal.zoom = WIN_SIZE / 4;
     config->fractal.mouse_x = 0;
     config->fractal. mouse_y = 0;
-    config->fractal.color = ???;
+    config->fractal.color = DEFAULT_COLOR;
     config->fractal.iterations = MIN_ITERATIONS;
     config->fractal. offset_x = -2;
     config->fractal. offset_y = -2;
 }
 
-void set_fractal_type(t_config *config, char argv)
+void set_fractal_type(t_config *config, char *fractal_type)
 {
-    config->fractal.type = argv;
+    config->fractal.type = fractal_type;
 }
 
 //set the initial stats for config strcuts. 
-void init_configuration(t_config *config, char *argv)
+void init_configuration(t_config *config, char *arg)
 {
-    static t_config config;
-    t_image         image;
+    int line_length;
+    int pixel_bits;
+    int endian;
 
-    reset_config();
-    set_fractal_type(t_config *config, argv);
+    reset_config(&config, arg);
+    set_fractal_type(t_config *config, arg);
 
     config->mlx = mlx_init();
     config->mlx_window = mlx_new_window(config->mlx, WINDOW_SIZE_W, WINDOW_SIZE_H, WINDOW_STATEMENT);
@@ -46,7 +47,6 @@ void init_configuration(t_config *config, char *argv)
 
     config.image = my_mlx_pixel_put(config->mlx, "t_pixel x". "t_pixel y", "color") //not sure yet how to pass "color" ->iterable?
     mlx_put_image_to_window(config->mlx, config->mlx_window, config.image, "t_pixel x". "t_pixel y");
-
 
 
     config->image.pixel_bits = pixel_bits;

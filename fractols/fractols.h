@@ -15,23 +15,19 @@
 
 //#include "libft/libft.h"
 # include <mlx.h>
+#include "events.h"
 
 
-# define WINDOW_SIZE_W 1920
-# define WINDOW_SIZE_H 1080
+# define WIN_SIZE 800 //height * width
 # define WINDOW_STATEMENT "fract'ols"
 # define MIN_ITERATIONS 255 //How detailed will my fractal be? = number of possible colors
 # define MAX_ITERATIONS 255
+# define DEFAULT_COLOR 265
+# define VIEW_CHANGE_SIZE 60
 
-/*
-needed structs
-
-.s_pixel -> for x/y coordinates
-.s_complex -> one struct containing real & complex part
-.s_image -> store info needed to print the desired image (img ptr, addr ptr, line length, pixel bits, endian)
-.s_config -> stoer all tools to print fractal (mlx ptr, window ptr, image, fractal set, )
-s_interact -> interact with the fractal ... like mouse control, zoom, nbr of iterations, color, set type, 
-*/
+# define SCALE 2
+# define FIXED_RADIUS 1
+# define MIN_RADIUS 0.5
 
 typedef struct s_pixel{
     int x;
@@ -40,8 +36,8 @@ typedef struct s_pixel{
 
 
 typedef s_complex{
-    double real;
-    double imaginary;
+    double re;
+    double im;
 }   t_complex;
 
 
@@ -58,7 +54,7 @@ typedef s_fractal{
     double zoom;
     double mouse_x;
     double mouse_y;
-    ??? color;
+    u_int_32_t color;
     int iterations;
     double offset_x;
     double offset_y;
