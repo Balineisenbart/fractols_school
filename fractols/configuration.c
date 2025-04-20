@@ -41,10 +41,7 @@ void init_configuration(t_config *config, char *arg)
     config->window = mlx_new_window(config->mlx, WIN_SIZE, WIN_SIZE, WINDOW_STATEMENT);
 
     config->image.img_ptr = mlx_new_image(config->mlx, WIN_SIZE, WIN_SIZE);
-    config->image.addr_ptr = mlx_get_data_addr(config->image.img_ptr, &pixel_bits, &endian, &line_length);
-
-    //config->image = my_mlx_pixel_put(config->image, config->fractal.offset_x, config->fractal.offset_y, config->fractal.color);
-    //mlx_put_image_to_window(config->mlx, config->mlx_window, config->image, config->fractal.offset_x, config->fractal.offset_y);
+    config->image.addr_ptr = mlx_get_data_addr(config->image.img_ptr, &pixel_bits, &line_length, &endian);
 
     config->image.pixel_bits = pixel_bits;
     config->image.line_length = line_length;

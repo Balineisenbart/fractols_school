@@ -3,6 +3,8 @@
 
 #include "fractols.h"
 
+#include <stdio.h>
+
 int calc_julia(t_fractal *fract, t_complex *c, int x, int y)
 {
     double      re_temp;
@@ -30,7 +32,6 @@ int calc_mandelbrot(t_fractal *fract, t_complex *c)
     i = -1;
     z.re = 0;
     z.im = 0;
-
     while ((z.re * z.re + z.im * z.im) < 4 && ++i < fract->iterations)
     {
         re_temp = z.re * z.re - z.im * z.im + c->re;

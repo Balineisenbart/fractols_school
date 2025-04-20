@@ -24,17 +24,9 @@ int calc_fractal(t_fractal *fract, t_complex *c, int x, int y)
 
     iter = 0;
     if (!(ft_strcmp(fract->type, MANDELBROT)))
-    {
-        printf("cheking for mandelbrot\n");
         iter = calc_mandelbrot(fract, c);
-        printf("iter: %d\n", iter);
-    }
     else if (!(ft_strcmp(fract->type, JULIA)))
-    {
-        printf("cheking for julia\n");
         iter = calc_julia(fract, c, x, y);
-        printf("iter: %d\n", iter);
-    }
 
     return (iter);
 }
@@ -67,16 +59,28 @@ void draw_fractal(t_config *config)
 
     while (++x < WIN_SIZE)
     {
-        printf("entered fractal loop\n");
-
         y = -1;
-        if (!(ft_strcmp(fract->type, JULIA)))
-            c.re = (x / fract->zoom) + fract->offset_x;
-
-        while (y < WIN_SIZE)
+        while (++y < WIN_SIZE)
         {
+            if (!ft_strcmp(fract->type, JULIA))
+            {
+                if (config->complex_param_lock_flag)
+                {
+                    c.re = config->arg2;
+                    c.im = config->arg3;
+                }
+                else
+                {
+                    c.re = (fract->mouse_x / fract->zoom) + fract->offset_x;
+                    c.im = (fract->mouse_y / fract->zoom) + fract->offset_y;
+                }
+            }
+            else
+            {
+                c.re = (x / fract->zoom) + fract->offset_x;
+                c.im = (y / fract->zoom) + fract->offset_y;
+            }
             iter = calc_fractal(fract, &c, x, y);
-            printf("%i\n", iter);
             set_pixel_color(config, x, y, (iter * config->fractal.color));
         }
     }
