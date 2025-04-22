@@ -44,7 +44,6 @@ int on_mouse_move_event(int x, int y, t_config *config)
 {
     if(ft_strcmp(config->fractal.type, JULIA))
         return (0);
-
     config->fractal.mouse_x = x;
     config->fractal.mouse_y = y;
     draw_fractal(config);

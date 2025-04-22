@@ -15,7 +15,7 @@ OBJS = $(SRCS:.c=.o)
 
 MLX = $(MLX_PATH)/libmlx.a
 
-TARGET = fractols
+TARGET = fractol
 
 all:	$(TARGET)
 

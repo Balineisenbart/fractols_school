@@ -97,7 +97,7 @@ void check_input(t_config *config, int argc, char **argv)
 void help_input(void)
 {
 	write(1, "Programm calls as follows:\n", 27);
-	write(1, "./<Binar> <fractal set> <possible real number> possible imaginary number>\n", 74);
+	write(1, "./<Binar> <fractal set> <possible real number> <possible imaginary number>\n", 75);
 	write(1, "fractal set must be written in small letters\n", 45);
 	write(1, "Programm offers two sets: mandelbrot or julia\n", 46);
 	write(1, "mandelbrot needs no extra input\n", 32);

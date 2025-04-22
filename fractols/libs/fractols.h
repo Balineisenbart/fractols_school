@@ -74,7 +74,6 @@ void change_view(int key, t_config *config);
 int calc_fractal(t_fractal *fract, t_complex *c, int x, int y);
 void set_pixel_color(t_config *config, int x, int y, int color);
 void draw_fractal(t_config *config);
-
 int calc_julia(t_fractal *fract, t_complex *c, int x, int y);
 int calc_mandelbrot(t_fractal *fract, t_complex *c);
 int	ft_strcmp(const char *s1, const char *s2);
@@ -82,10 +81,7 @@ void check_input(t_config *config, int argc, char **argv);
 int ft_is_valid_number(const char *s);
 double	ft_atof(const char *s);
 int	ft_isdigit(int c);
-
-
 void help_input(void);
-
 
 #endif
 
