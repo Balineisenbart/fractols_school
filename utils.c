@@ -6,15 +6,11 @@
 /*   By: astoiber <astoiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:09:17 by astoiber          #+#    #+#             */
-/*   Updated: 2025/04/22 12:59:03 by astoiber         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:48:06 by astoiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "configuration.h"
-#include "events.h"
-#include "fractols.h"
-#include "keys.h"
-#include "mlx.h"
+#include "fractol.h"
 #include <ctype.h>
 
 int	ft_strcmp(const char *s1, const char *s2)
@@ -27,17 +23,15 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-double	ft_atof(const char *s)
+double	ft_atof(const char *s, int i)
 {
 	double	res;
 	double	sign;
 	double	frac;
-	int		i;
 
 	res = 0.0;
 	sign = 1.0;
 	frac = 0.1;
-	i = 0;
 	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
 		i++;
 	if (s[i] == '-' || s[i] == '+')
@@ -89,6 +83,9 @@ int	ft_isdigit(int c)
 
 void	check_input(t_config *config, int argc, char **argv)
 {
+	int	i;
+
+	i = 0;
 	if (!(argc == 2 || argc == 4))
 		help_input();
 	if (!(ft_strcmp(argv[1], MANDELBROT) == 0 || ft_strcmp(argv[1],
@@ -104,8 +101,8 @@ void	check_input(t_config *config, int argc, char **argv)
 				help_input();
 			else
 			{
-				config->arg2 = ft_atof(argv[2]);
-				config->arg3 = ft_atof(argv[3]);
+				config->arg2 = ft_atof(argv[2], i);
+				config->arg3 = ft_atof(argv[3], i);
 				config->complex_param_lock_flag = 1;
 			}
 		}

@@ -6,15 +6,12 @@
 /*   By: astoiber <astoiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:09:12 by astoiber          #+#    #+#             */
-/*   Updated: 2025/04/22 12:58:48 by astoiber         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:49:03 by astoiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration.h"
 #include "events.h"
-#include "fractols.h"
-#include "keys.h"
-#include "utils.h"
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: astoiber <astoiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:40:09 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/22 12:11:29 by astoiber         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:27:47 by astoiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <math.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -80,8 +79,10 @@ int				calc_mandelbrot(t_fractal *fract, t_complex *c);
 int				ft_strcmp(const char *s1, const char *s2);
 void			check_input(t_config *config, int argc, char **argv);
 int				ft_is_valid_number(const char *s);
-double			ft_atof(const char *s);
+double			ft_atof(const char *s, int i);
 int				ft_isdigit(int c);
 void			help_input(void);
+t_complex		calc_complex(t_config *config, t_complex c,
+					int x, int y);
 
 #endif

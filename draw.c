@@ -6,11 +6,11 @@
 /*   By: astoiber <astoiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:08:59 by astoiber          #+#    #+#             */
-/*   Updated: 2025/04/22 12:18:35 by astoiber         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:46:45 by astoiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractols.h"
+#include "fractol.h"
 #include "keys.h"
 
 void	change_view(int key, t_config *config)
@@ -70,28 +70,37 @@ void	draw_fractal(t_config *config)
 		y = -1;
 		while (++y < WIN_SIZE)
 		{
-			if (!ft_strcmp(fract->type, JULIA))
-			{
-				if (config->complex_param_lock_flag)
-				{
-					c.re = config->arg2;
-					c.im = config->arg3;
-				}
-				else
-				{
-					c.re = (fract->mouse_x / fract->zoom) + fract->offset_x;
-					c.im = (fract->mouse_y / fract->zoom) + fract->offset_y;
-				}
-			}
-			else
-			{
-				c.re = (x / fract->zoom) + fract->offset_x;
-				c.im = (y / fract->zoom) + fract->offset_y;
-			}
+			c = calc_complex(config, c, x, y);
 			iter = calc_fractal(fract, &c, x, y);
 			set_pixel_color(config, x, y, (iter * config->fractal.color));
 		}
 	}
 	mlx_put_image_to_window(config->mlx, config->window, config->image.img_ptr,
 		0, 0);
+}
+
+t_complex	calc_complex(t_config *config, t_complex c, int x, int y)
+{
+	t_fractal			*fract;
+
+	fract = &config->fractal;
+	if (!ft_strcmp(fract->type, JULIA))
+	{
+		if (config->complex_param_lock_flag == 1)
+		{
+			c.re = config->arg2;
+			c.im = config->arg3;
+		}
+		else
+		{
+			c.re = (fract->mouse_x / fract->zoom) + fract->offset_x;
+			c.im = (fract->mouse_y / fract->zoom) + fract->offset_y;
+		}
+	}
+	else
+	{
+		c.re = (x / fract->zoom) + fract->offset_x;
+		c.im = (y / fract->zoom) + fract->offset_y;
+	}
+	return (c);
 }

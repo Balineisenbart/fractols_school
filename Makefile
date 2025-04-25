@@ -8,8 +8,8 @@ INCLUDEDIR = include
 MLX_PATH = include/minilibx-linux
 
 SRCDIR = .
-SRCS = $(SRCDIR)/main.c $(SRCDIR)/fractal_set.c $(SRCDIR)/events.c $(SRCDIR)/draw.c \
-$(SRCDIR)/configuration.c $(SRCDIR)/utils.c
+SRCS = $(SRCDIR)/main.c $(SRCDIR)/fractal_set.c $(SRCDIR)/configuration.c \
+$(SRCDIR)/events.c $(SRCDIR)/draw.c $(SRCDIR)/utils.c
 
 OBJS = $(SRCS:.c=.o)
 

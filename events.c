@@ -6,14 +6,12 @@
 /*   By: astoiber <astoiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:09:04 by astoiber          #+#    #+#             */
-/*   Updated: 2025/04/22 12:19:27 by astoiber         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:47:22 by astoiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "events.h"
-#include "fractols.h"
+#include "fractol.h"
 #include "keys.h"
-#include "mlx.h"
 
 int	on_destroy_event(t_config *config)
 {

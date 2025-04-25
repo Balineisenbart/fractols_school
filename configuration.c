@@ -6,12 +6,11 @@
 /*   By: astoiber <astoiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:08:53 by astoiber          #+#    #+#             */
-/*   Updated: 2025/04/22 12:17:06 by astoiber         ###   ########.fr       */
+/*   Updated: 2025/04/25 14:33:16 by astoiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "configuration.h"
-#include "fractols.h"
 
 void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
 {

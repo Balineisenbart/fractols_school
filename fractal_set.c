@@ -6,12 +6,12 @@
 /*   By: astoiber <astoiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:09:08 by astoiber          #+#    #+#             */
-/*   Updated: 2025/04/22 12:54:30 by astoiber         ###   ########.fr       */
+/*   Updated: 2025/04/25 15:13:40 by astoiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractols.h"
-#include <stdio.h>
+#include "fractol.h"
+#include "libs/fractol.h"
 
 int	calc_julia(t_fractal *fract, t_complex *c, int x, int y)
 {
